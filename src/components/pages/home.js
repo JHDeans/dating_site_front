@@ -6,14 +6,14 @@ const Home = () => {
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/cards")
+    fetch("https://datingsitebackend.herokuapp.com/cards")
       .then(response => response.json())
       .then(data => setCards(data))
       .catch(error => console.log(error));
   }, []);
 
   const deleteCard = id => {
-    fetch(`http://localhost:5000/card/${id}`, {
+    fetch(`https://datingsitebackend.herokuapp.com/card/${id}`, {
       method: "DELETE"
     })
       .then(setCards(cards.filter(card => card.id !== id)))

@@ -13,7 +13,7 @@ const CardForm = props => {
 
   React.useEffect(() => {
     if (props.id && props.editMode) {
-      fetch(`http://localhost:5000/card/${props.id}`)
+      fetch(`https://datingsitebackend.herokuapp.com/card/${props.id}`)
         .then(response => response.json())
         .then(data => {
           setInput(data.text);
@@ -60,7 +60,7 @@ const CardForm = props => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (props.editMode) {
-      await fetch(`localhost:5000/card/${props.id}`, {
+      await fetch(`https://datingsitebackend.herokuapp.com/card/${props.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const CardForm = props => {
       navigate("/");
     } else {
     }
-    await fetch("http://localhost:5000/add-card", {
+    await fetch("https://datingsitebackend.herokuapp.com/add-card", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
